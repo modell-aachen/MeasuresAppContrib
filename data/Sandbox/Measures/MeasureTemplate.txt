@@ -1,0 +1,11 @@
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402925114" format="1.1" reprev="1" version="1"}%
+---+ Description
+
+---+ Documentation of implemention
+
+%STARTSECTION{type="templateonly"}%
+   * Set ALLOWTOPICCHANGE = AdminGroup
+%ENDSECTION{type="templateonly"}%
+
+%META:PREFERENCE{name="VIEW_TEMPLATE" title="VIEW_TEMPLATE" type="Set" value="MeasureView"}%
+%META:PREFERENCE{name="EDIT_TEMPLATE" title="EDIT_TEMPLATE" type="Set" value="MeasureEdit"}%

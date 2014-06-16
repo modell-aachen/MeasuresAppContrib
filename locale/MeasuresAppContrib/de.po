@@ -1,0 +1,116 @@
+German translation for the Measures-Application
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Foswiki $Id\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2012-11-26 00:09+0200\n"
+"Last-Translator: Bartek \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.1.6\n"
+
+msgid "Add task"
+msgstr "Aufgabe hinzufügen"
+
+msgid "all"
+msgstr "alle"
+
+msgid "Closed on"
+msgstr "Erledigt am"
+
+msgid "Closed tasks"
+msgstr "Erledigte Aufgaben"
+
+msgid "Create new measure"
+msgstr "Neue Maßnahme anlegen"
+
+msgid "Create new task"
+msgstr "Neue Aufgabe erstellen"
+
+msgid "Created on"
+msgstr "Erstellt am"
+
+msgid "Creator"
+msgstr "Ersteller"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Decision"
+msgstr "Entscheid"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Due date"
+msgstr "Termin"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Measure data"
+msgstr "Maßnahmen-Daten"
+
+msgid "Measures management"
+msgstr "Maßnahmen-Management"
+
+msgid "Name of measure"
+msgstr "Name der Maßnahme"
+
+msgid "no selection"
+msgstr "keine Auswahl"
+
+msgid "Open tasks"
+msgstr "Offene Aufgaben"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Responsibility"
+msgstr "Verantwortlichkeit"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Signal"
+msgstr "Ampel"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Submit"
+msgstr "Senden"
+
+msgid "Task to"
+msgstr "Aufgabe an"
+
+msgid "Task"
+msgstr "Aufgabe"
+
+msgid "Task/Information"
+msgstr "Aufgabe/Information"
+
+msgid "Tasks"
+msgstr "Aufgaben"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "closed"
+msgstr "erledigt"
+
+msgid "no relevance"
+msgstr "keine Relevanz"
+
+msgid "open"
+msgstr "offen"
+

@@ -1,0 +1,10 @@
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402924493" format="1.1" reprev="1" version="1"}%
+| *Name* | *Type* | *Size* | *Values* | *Tooltip message* | *Attributes* |
+| TopicTitle | text | 50 | | %MAKETEXT{"Name of measure"}% | M |
+| DateCreated | date | 50 | %DATE% | %MAKETEXT{"Created on"}% | |
+| DateClosed | date | 50 |  | %MAKETEXT{"Closed on"}% | |
+| Status | select+values | 1 | %MAKETEXT{"open"}%=open,%MAKETEXT{"closed"}%=closed,%MAKETEXT{"no relevance"}%=no relevance, | %MAKETEXT{"Status"}% | |
+| Responsibility | textboxlist | 50 mustMatch limit="1"| %USERAUTOCOMPLETE% | %MAKETEXT{"Responsibility"}% | M |
+
+%META:PREFERENCE{name="NOWYSIWYG" title="NOWYSIWYG" type="Set" value="1"}%
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="AdminGroup"}%

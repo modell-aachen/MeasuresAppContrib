@@ -1,0 +1,29 @@
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402924778" format="1.1" reprev="1" version="1"}%
+%TMPL:INCLUDE{edit}%
+
+%TMPL:DEF{"content"}%%TMPL:P{"simpleheader"}%
+%TMPL:P{"formstart"}%%TMPL:P{"formtop"}%
+
+<div class="widgetBlockTitle">%MAKETEXT{"Measure data"}%</div>
+<div class="widgetBlockContent">
+<table class="metaDataHead">
+<tr><td width="300px;">%MAKETEXT{"Title"}%<font color="red">*</font>:</td><td>%RENDERFOREDIT{field="TopicTitle" format="$edit"}%</td></tr>
+<tr><td>%MAKETEXT{"Created on"}%:</td><td>%RENDERFOREDIT{field="DateCreated" format="$edit" value="%DATE%"}%</td></tr>
+<tr><td>%MAKETEXT{"Closed on"}%:</td><td>%RENDERFOREDIT{field="DateClosed" format="$edit"}%</td></tr>
+<tr><td>%MAKETEXT{"Status"}%:</td><td>%RENDERFOREDIT{field="Status" format="$edit"}%</td></tr>
+<tr><td>%MAKETEXT{"Responsibility"}%<font color="red">*</font>:</td><td>%RENDERFOREDIT{field="Responsibility" format="$edit"}%</td></tr>
+</table>
+</div>
+
+<div class="widgetBlockContent">
+%TMPL:P{"textarea"}%
+</div>
+
+%TMPL:P{"topicinfo"}%
+%TMPL:P{"formend"}%
+
+%TMPL:END%
+
+
+%META:PREFERENCE{name="NOWYSIWYG" title="NOWYSIWYG" type="Set" value="1"}%
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="AdminGroup"}%

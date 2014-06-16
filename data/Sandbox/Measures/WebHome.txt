@@ -1,0 +1,62 @@
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402926303" format="1.1" reprev="1" version="1"}%
+<div class="widgetBlockTitle">%MAKETEXT{"Measures management"}%</div>
+<div class="widgetBlockContent">
+
+<div id="SelectionList" style="display:none">
+%SOLRSEARCH{
+"form:*MeasureForm"
+web="%WEB%"
+id="solr"
+fields="field_Status_s"
+facets="field_Status_s"
+rows="99999"
+sort="topic asc"
+}%
+%SOLRFORMAT{"solr"
+fields="field_Status_s"
+header="| Status | $n" 
+format="| $field_Status_s | $n"
+footer=""
+sort="topic asc"
+rows="99999"}%
+</div>
+
+<form name="input" action="#task" method="get">
+<table>
+<tr><td align="right" valign="top">%MAKETEXT{"Status"}%:</td><td valign="top">%INCLUDE{"%TOPIC%"section="Status"}%</td></tr>
+<tr><td></td><td>%BUTTON{"%MAKETEXT{"Submit"}%" type="submit"}%%BUTTON{"%MAKETEXT{"Reset"}%" target="%WEB%.%TOPIC%" }%%CLEAR%</td></tr>
+</table>
+</form>
+
+%TABLE{%TABLETHEMEPARAM%}%
+| *%MAKETEXT{"Title"}%* | *%MAKETEXT{"Responsibility"}%* | *%MAKETEXT{"Status"}%* |
+%SOLRSEARCH{
+"form:*MeasureForm field_Status_s:%URLPARAM{"FilterStatus" default="DUMMY"}%"
+web="%WEB%"
+fields="web, topic, field_TopicTitle_s, field_Responsibility_lst, field_Status_s"
+header=""
+format="| [[$web.$topic][$field_TopicTitle_s]] | $field_Responsibility_lst | $percntMAKETEXT{\"$field_Status_s\"}$percnt | $n"
+footer=""
+rows="99999"
+sort="topic asc"
+}%
+
+
+<div id="facet" style="display:none">
+---++ Facets
+%STARTSECTION{"Status"}%
+%SOLRFORMAT{"solr"
+  format_field_Status_s = "<option value=\"$key\" $percentIF{\"'%URLPARAM{"FilterStatus"}%'='$key'\" then=\"selected\"}$percent>$percntMAKETEXT{\"$key\"}$percnt</option>"
+  separator_field_Status_s= ","
+  header_field_Status_s= "<select name=\"FilterStatus\" value=\"%URLPARAM{\"FilterStatus\"}%\"><option value=\"\">$percntMAKETEXT{\"no selection\"}$percnt</option>"
+  footer_field_Status_s= "<option value=\"*\">$percntMAKETEXT{\"all\"}$percnt</option></select>"
+}%
+%ENDSECTION{"Produktgruppe"}%
+</div>
+
+
+</div>
+
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="AdminGroup"}%
+%META:PREFERENCE{name="NOWYSIWYG" title="NOWYSIWYG" type="Set" value="1"}%
+%META:PREFERENCE{name="VIEW_TEMPLATE" title="VIEW_TEMPLATE" type="Set" value="SystemView"}%
