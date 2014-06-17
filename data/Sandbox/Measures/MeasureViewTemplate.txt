@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402929155" format="1.1" reprev="1" version="1"}%
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402994911" format="1.1" reprev="2" version="2"}%
 %TMPL:INCLUDE{view}%
 
 %TMPL:DEF{"modacMore"}%
@@ -14,6 +14,7 @@
 <tr><td>%MAKETEXT{"Closed on"}%:</td><td>%RENDERFORDISPLAY{field="DateClosed" format="$value"}%</td></tr>
 <tr><td>%MAKETEXT{"Status"}%:</td><td>%RENDERFORDISPLAY{field="Status" format="$value"}%</td></tr>
 <tr><td>%MAKETEXT{"Responsibility"}%:</td><td>%RENDERFORDISPLAY{field="Responsibility" format="$value"}%</td></tr>
+<tr><td>%MAKETEXT{"Associated topic"}%:</td><td>%RENDERFORDISPLAY{field="AssociatedTopic" format="[[$value]]" hideempty="on"}%</td></tr>
 </table>
 </div>
 

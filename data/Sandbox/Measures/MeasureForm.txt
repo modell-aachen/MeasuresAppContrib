@@ -1,10 +1,17 @@
-%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402924493" format="1.1" reprev="1" version="1"}%
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402994631" format="1.1" reprev="1" version="2"}%
 | *Name* | *Type* | *Size* | *Values* | *Tooltip message* | *Attributes* |
 | TopicTitle | text | 50 | | %MAKETEXT{"Name of measure"}% | M |
 | DateCreated | date | 50 | %DATE% | %MAKETEXT{"Created on"}% | |
 | DateClosed | date | 50 |  | %MAKETEXT{"Closed on"}% | |
 | Status | select+values | 1 | %MAKETEXT{"open"}%=open,%MAKETEXT{"closed"}%=closed,%MAKETEXT{"no relevance"}%=no relevance, | %MAKETEXT{"Status"}% | |
 | Responsibility | textboxlist | 50 mustMatch limit="1"| %USERAUTOCOMPLETE% | %MAKETEXT{"Responsibility"}% | M |
+| AssociatedTopic | textboxlist | 50 mustMatch limit="1"| %SCRIPTURL{view}%/%WEB%/MeasureForm?section=associatedtopic;skin=text;limit=20 | %MAKETEXT{"Associated topic"}% |  |
+
+<verbatim>
+%STARTSECTION{"associatedtopic"}%[%SOLRSEARCH{
+  "web:* -web:(System OR Main OR Custom) type:topic title_search:?* -topic:*%WORKFLOWSUFFIX% (webtopic_search:(%FORMATLIST{"%CALC{"$LOWER(%URLPARAM{"term" default="does not exist"}%)"}%" split=" " separator=" " pattern="(.*)" format="*$1*"}%) OR title_search:(%FORMATLIST{"%CALC{"$LOWER(%URLPARAM{"term" default="does not exist"}%)"}%" split=" " separator=" " pattern="(.*)" format="*$1*"}%))" format="<nop>%URLPARAM{"format" encode="quote" default="{\\"label\\":\\"$percntENCODE{\\"$title\\" type=\\"safe\\"}$percnt\\",\\"sublabel\\":\\"$web.$topic\\",\\"value\\":\\"$web.$topic\\"}"}%" separator="," limit="%URLPARAM{"limit" default="10"}%"
+}%]%ENDSECTION{"associatedtopic"}%
+</verbatim>
 
 %META:PREFERENCE{name="NOWYSIWYG" title="NOWYSIWYG" type="Set" value="1"}%
 %META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="AdminGroup"}%
