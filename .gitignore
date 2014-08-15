@@ -1,0 +1,4 @@
+*.lease
+*.txt,v
+*.changes
+Measure[0-9]*.txt

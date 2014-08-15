@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402994679" format="1.1" reprev="1" version="2"}%
+%META:TOPICINFO{author="BaseUserMapping_333" comment="save topic" date="1402998253" format="1.1" reprev="2" version="2"}%
 %TMPL:INCLUDE{edit}%
 
 %TMPL:DEF{"content"}%%TMPL:P{"simpleheader"}%
@@ -12,7 +12,7 @@
 <tr><td>%MAKETEXT{"Closed on"}%:</td><td>%RENDERFOREDIT{field="DateClosed" format="$edit"}%</td></tr>
 <tr><td>%MAKETEXT{"Status"}%:</td><td>%RENDERFOREDIT{field="Status" format="$edit"}%</td></tr>
 <tr><td>%MAKETEXT{"Responsibility"}%<font color="red">*</font>:</td><td>%RENDERFOREDIT{field="Responsibility" format="$edit"}%</td></tr>
-<tr><td>%MAKETEXT{"AssociatedTopic"}%:</td><td>%RENDERFOREDIT{field="AssociatedTopic" format="$edit"}%</td></tr>
+<tr><td>%MAKETEXT{"Associated topic"}%:</td><td>%RENDERFOREDIT{field="AssociatedTopic" format="$edit"}%</td></tr>
 </table>
 </div>
 
