@@ -57,6 +57,9 @@ msgstr "Information"
 msgid "Measure data"
 msgstr "Maßnahmen-Daten"
 
+msgid "Measures"
+msgstr "Maßnahmen"
+
 msgid "Measures management"
 msgstr "Maßnahmen-Management"
 
