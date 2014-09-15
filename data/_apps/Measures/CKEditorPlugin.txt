@@ -1,0 +1,161 @@
+%META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1410522809" format="1.1" reprev="9" version="3"}%
+---+ Configuration instructions
+
+By default CKEditorPlugin will read its configuration from within this topic. In order to customize your configuration, copy this topic to a different location, for instance to *Custom.CKEditorConfig* and edit your _Web- or SitePreferences_ to point to the new configuration file by setting variable *CKE_CONFIG_TOPIC*:
+
+<verbatim>
+   * Set CKE_CONFIG_TOPIC = Web.Topic
+</verbatim>
+
+
+The configuration is split into three sections:
+   1 CKE_CONFIG_MAIN: global CKEditor settings *(mandatory)*
+   1 CKE_WEBCONFIG_webname: per web configuration *(optional)*
+   1 CKE_CONFIG_FORMFIELD: form field configuration values *(optional, but recommended if form field 'editor' is used)*
+
+
+<br />
+---+++ CKE_CONFIG_MAIN
+The default configuration.
+
+<br />
+---+++ CKE_WEBCONFIG
+Per web configuration.<br />
+This section allows you to override or even replace the default configuration. Depending on its parameter *merge* CKEditorPlugin will override (_merge="1"_) all given parameters or replace the entire main configuration (_merge="0"_).
+
+
+<br />
+---+++ CKE_CONFIG_FORMFIELD
+Form field configuration.<br />
+The entire form field configuration is read from this section. *CKE_CONFIG_MAIN* and *CKE_WEBCONIG* values are completely ignored.<br />
+See _CKEditor Form Field_ for further information how to use and configure a CKEditor attached textarea.
+
+
+<br />
+---+ CKEditor Form Field
+CKEditorPlugin ships with a Foswiki form field definition called *editor*<br />
+This form field is derived from Foswiki's textarea field and supports all of its configurations (e.g. cols, rows, name).
+
+
+<br />
+---+ Configuration values
+
+---+++ CKE_CONFIG_MAIN
+%TWISTY{showlink="Show configuration" hidelink="Hide configuration" start="hide"}%
+<verbatim class="js">
+%STARTSECTION{"CKE_CONFIG_MAIN"}%
+wikitoolname: '%WIKITOOLNAME%',
+uiColor: '#f0f0f0',
+skin: 'moono',
+toolbar: 'MA',
+height: 500,
+allowedContent: true,
+resize_enabled: true,
+toolbarCanCollapse: false,
+enterMode: CKEDITOR.ENTER_P,
+shiftEnterMode: CKEDITOR.ENTER_BR,
+format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
+extraPlugins: 'link,magicline,qwikisave,qwikiautosuggest,qwikifilebrowser,qwiki,qwikitabletools,qwikitable,qwikiprovis,qwikitoolbar,qwikitableresize',
+removePlugins: 'divarea,autosave,filebrowser,table,tabletools,wordcount,imagemaps',
+removeFormatTags: 'b,big,code,del,dfn,em,font,i,ins,kbd,p,q,s,samp,small,span,strike,strong,sub,sup,tt,u,var,h1,h2,h3,h4,h5,h6,ol,ul,dl,li,dd,dt,pre,xmp',
+removeFormatAttributes: 'class,style,lang,width,height,align,hspace,valign',
+language: '%LANGUAGE%',
+forcePasteAsPlainText: false,
+filebrowserUploadUrl: '%SCRIPTURLPATH{"rest"}%/WysiwygPlugin/upload?noredirect',
+linkShowAdvancedTab: false,
+linkShowTargetTab: false,
+contentsCss: [ '%PUBURLPATH%/%SYSTEMWEB%/CKEditorPlugin/styles/cke_qwiki.css'],
+magicline_color: '#cccccc',
+
+toolbar_MA: [
+    { name: '', items: [ 'ma-save', 'ma-cancel' ] },
+    { name: '', items: [ 'Source' ] },
+    { name: '', items: [ 'Undo', 'Redo' ] },
+    { name: '', items: [ 'Link','Unlink' ] },
+    { name: '', items: [ 'QwikiProvis', 'QwikiAttach', 'Image', 'QwikiTable', 'Code', 'Document' 
+] },
+    { name: '', items: [ 'RemoveFormat', 'ShowBlocks', 'Maximize' ] },
+    '/',
+    { name: '', items: ['Format' ] },
+    { name: '', items: [ 'Bold','Italic','Underline' ] },
+    { name: '', items: [ 'Strike', 'Subscript', 'Superscript' ] },
+    { name: '', items: [ 'NumberedList','BulletedList', 'Outdent','Indent' ] },
+    { name: '', items: [ 'Styles' ] },
+    { name: 'ma-toolbar', items: [ 'ma-expand-toolbar', 'ma-collapse-toolbar' ] },
+    '/',
+    { name: '', items: [ 'Blockquote', 'CreateDiv' ] },
+    { name: '', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+    { name: '', items: [ 'BidiLtr', 'BidiRtl', 'Language' ] },
+    { name: '', items: [ 'Font', 'FontSize' ] },
+    '/',
+    { name: '', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord' ] },
+    { name: '', items: [ 'HorizontalRule', 'SpecialChar', 'PageBreak' ] },
+    { name: '', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] }
+],
+
+stylesSet:[
+    { name: /de/.test( '%LANGUAGE%' ) ? "Roter Text" : "Red text", element: 'span', styles: {'color': 'red'} },
+    { name: /de/.test( '%LANGUAGE%' ) ? "Marker: Gelb" : "Marker: Yellow", element: 'span', styles: {'background-color': 'yellow'} },
+    { name: /de/.test( '%LANGUAGE%' ) ? "Marker: Gr\u00FCn" : "Marker: Green", element: 'span', styles: {'background-color': 'lime'} }
+]
+%ENDSECTION{"CKE_CONFIG_MAIN"}%
+</verbatim>
+%ENDTWISTY%
+
+
+<br />
+---+++ CKE_WEBCONFIG_MyWeb1
+%TWISTY{showlink="Show configuration" hidelink="Hide configuration" start="hide"}%
+<verbatim class="js">
+%STARTSECTION{"CKE_WEBCONFIG_WebName" merge="1"}%
+uiColor: "#000000",
+skin: 'moonocolor'
+%ENDSECTION{"CKE_WEBCONFIG_MyWeb2"}%
+</verbatim>
+%ENDTWISTY%
+
+
+<br />
+---+++ CKE_CONFIG_FORMFIELD
+%TWISTY{showlink="Show configuration" hidelink="Hide configuration" start="hide"}%
+<verbatim class="js">
+%STARTSECTION{"CKE_CONFIG_FORMFIELD"}%
+uiColor: '#f0f0f0',
+skin: 'moono',
+toolbar: 'FORMFIELD',
+height: 125,
+width: '100%',
+allowedContent: true,
+resize_enabled: true,
+toolbarCanCollapse: false,
+enterMode: CKEDITOR.ENTER_P,
+shiftEnterMode: CKEDITOR.ENTER_BR,
+extraPlugins: 'divarea,link,qwiki,qwikiautosuggest,qwikifilebrowser',
+removePlugins: 'autosave,filebrowser,table,tabletools,wordcount,magicline,qwikisave,qwikitable,qwikitabletools,qwikitoolbar,elementspath',
+language: '%LANGUAGE%',
+forcePasteAsPlainText: false,
+filebrowserUploadUrl: '%SCRIPTURLPATH{"rest"}%/WysiwygPlugin/upload?noredirect',
+linkShowAdvancedTab: false,
+linkShowTargetTab: false,
+contentsCss: [ '%PUBURLPATH%/%SYSTEMWEB%/CKEditorPlugin/styles/cke_qwiki.css'],
+toolbar_FORMFIELD: [
+    { name: '', items: [ 'Undo', 'Redo' ] },
+    { name: '', items: [ 'Link','Unlink' ] },
+    { name: '', items: [ 'Bold','Italic','Underline' ] },
+    { name: '', items: [ 'NumberedList','BulletedList' ] }
+]
+%ENDSECTION{"CKE_CONFIG_FORMFIELD"}%
+</verbatim>
+%ENDTWISTY%
+
+---++ Info
+
+|  Author: | SvenMeyer |
+|  Copyright: | 2014, Modell Aachen GmbH, All Rights Reserved |
+|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
+|  Dependencies: | <table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=4.33</td><td align="left">JQueryPlugin required.</td></tr><tr><td align="left">Foswiki::Plugins::ProVisDesignerPlugin</td><td align="left">&gt;=1.0.0</td><td align="left">ProVisDesignerPlugin required.</td></tr><tr><td align="left">Foswiki::Plugins::WysiwygPlugin</td><td align="left">&gt;=1.1.4</td><td align="left">WysiwygPlugin required.</td></tr></table> |
+|  Version: | 2.0 |
+|  Release: | 2.0.100 |
+|  Change&nbsp;History: | <!-- versions below in reverse order --> |
+
+

@@ -37,6 +37,8 @@
    * Set WEBFORMS =
       * Comma separated list of forms that can be attached to topics in this web. See [[%SYSTEMWEB%.DataForms][DataForms]] for more information.
 
+   * Set CKE_CONFIG_TOPIC = Risks.CKEditorPlugin
+
 ---++ ActionTracker settings
    * Set ACTIONTRACKERPLUGIN_EXTRAS = |createdate,date|task,text,50|zeit,text,10|state,select+values,"%MAKETEXT{"open"}%=open","%MAKETEXT{"closed"}%=closed"|result,select+values,"%MAKETEXT{"Decision"}%=Decision","%MAKETEXT{"Task"}%=Task","%MAKETEXT{"Information"}%=Information"|context,text,50|
    * Set ACTIONTRACKERPLUGIN_TABLEHEADER = | %MAKETEXT{"Date"}% | %MAKETEXT{"Creator"}% | %MAKETEXT{"Type"}% | %MAKETEXT{"Task to"}% | %MAKETEXT{"Task"}%/%MAKETEXT{"Information"}% | Details | %MAKETEXT{"Due date"}% | %MAKETEXT{"Closed on"}% | <div style="display:none;">Status</div>| %MAKETEXT{"Signal"}% ||

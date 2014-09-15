@@ -1,59 +1,53 @@
 %META:TOPICINFO{author="BaseUserMapping_333" comment="reprev" date="1402994911" format="1.1" reprev="2" version="2"}%
 %TMPL:INCLUDE{view}%
-
 %TMPL:DEF{"modacMore"}%
 %TMPL:END%
-
 %TMPL:DEF{"content"}%%TMPL:P{"simpleheader"}%
-
 <div class="widgetBlockTitle">%MAKETEXT{"Measure data"}%</div>
 <div class="widgetBlockContent">
-<table class="metaDataHead">
-<tr><td width="300px;">%MAKETEXT{"Title"}%:</td><td>%RENDERFORDISPLAY{field="TopicTitle" format="$value"}%</td></tr>
-<tr><td>%MAKETEXT{"Created on"}%:</td><td>%RENDERFORDISPLAY{field="DateCreated" format="$value"}%</td></tr>
-<tr><td>%MAKETEXT{"Closed on"}%:</td><td>%RENDERFORDISPLAY{field="DateClosed" format="$value"}%</td></tr>
-<tr><td>%MAKETEXT{"Status"}%:</td><td>%RENDERFORDISPLAY{field="Status" format="$value"}%</td></tr>
-<tr><td>%MAKETEXT{"Responsibility"}%:</td><td>%RENDERFORDISPLAY{field="Responsibility" format="$value"}%</td></tr>
-<tr><td>%MAKETEXT{"Associated topic"}%:</td><td>%RENDERFORDISPLAY{field="AssociatedTopic" format="[[$value]]" hideempty="on"}%</td></tr>
-</table>
+   <table class="metaDataHead">
+      <tr><td width="300px;">%MAKETEXT{"Title"}%:</td><td>%RENDERFORDISPLAY{field="TopicTitle" format="$value"}%</td></tr>
+      <tr><td>%MAKETEXT{"Associated topic"}%:</td><td>%RENDERFORDISPLAY{field="AssociatedTopic" format="[[$value]]" hideempty="on"}%</td></tr>
+      <tr><td>%MAKETEXT{"Created on"}%:</td><td>%RENDERFORDISPLAY{field="DateCreated" format="$value"}%</td></tr>
+      <tr><td>%MAKETEXT{"Closed on"}%:</td><td>%RENDERFORDISPLAY{field="DateClosed" format="$value"}%</td></tr>
+      <tr><td>%MAKETEXT{"Status"}%:</td><td>%RENDERFORDISPLAY{field="Status" format="$value"}%</td></tr>
+      <tr><td>%MAKETEXT{"Responsibility"}%:</td><td>%RENDERFORDISPLAY{field="Responsibility" format="$value"}%</td></tr>
+   </table>
 </div>
-
+<div class="widgetBlockTitle">%MAKETEXT{"Description"}%</div>
+<div class="widgetBlockContent">
+   %RENDERFORDISPLAY{field="Description" format="$value"}%
+</div>
+<div class="widgetBlockTitle">%MAKETEXT{"Documentation of implemention"}%</div>
+<div class="widgetBlockContent">
+   %RENDERFORDISPLAY{field="DocumentationOfImplemention" format="$value"}%
+</div>
 <div class="widgetBlockTitle">%MAKETEXT{"Tasks"}%</div>
 <div class="widgetBlockContent">
-
-<div class="modacPrintHide">
-%BUTTON{"%MAKETEXT{"Create new task"}%" href="#actiondialog" class="jqUIDialogLink {cache:'false'}"}%
-%CLEAR%
-%STARTSECTION{"actiondialog"}%
-<div id="actiondialog" title="%MAKETEXT{"Create new task"}%" class="jqUIDialog {draggable:true, resizable: true, height:400, width:600}">
-%COMMENT{type="action3"  location="This should be unique text AIVOqxWgyT" target="MeasureActions"}%
+   <div class="modacPrintHide">
+      %BUTTON{"%MAKETEXT{"Create new task"}%" href="#actiondialog" class="jqUIDialogLink {cache:'false'}"}%
+      %CLEAR%
+      %STARTSECTION{"actiondialog"}%
+      <div id="actiondialog" title="%MAKETEXT{"Create new task"}%" class="jqUIDialog {draggable:true, resizable: true, height:400, width:600}">
+         %COMMENT{type="action3"  location="This should be unique text AIVOqxWgyT" target="MeasureActions"}%
+      </div>
+      %ENDSECTION{"actiondialog"}%
+   </div>
+   %TABPANE{class="simple"}%
+   %TAB{"%MAKETEXT{"Open tasks"}%" id="tab01"}%
+   <div id="SignalOpenTasks">
+      %ACTIONSEARCH{web="%WEB%" topic="MeasureActions" context="%BASETOPIC%" state="open" sort="$createdate,$who,$due" jqsortable="1" jqsortopts="widgets: ['zebra'], sortList: [[0,1],[0,1]], headers: { 0: { sorter: 'qwikiDate' }, 6: { sorter: 'qwikiDate' }, 7: { sorter: 'qwikiDate' }, 8: { sorter: false }, 9: { sorter: false }, 10: { sorter: false } }"}%
+   </div>
+   %ENDTAB%
+   %TAB{"%MAKETEXT{"Closed tasks"}%" id="tab02"}%
+   <div id="SignalClosedTasks">
+      %ACTIONSEARCH{web="%WEB%" topic="MeasureActions" context="%BASETOPIC%" state="closed" sort="$createdate,$who,$due" jqsortable="1" jqsortopts="widgets: ['zebra'], sortList: [[0,1],[0,1]], headers: { 0: { sorter: 'qwikiDate' }, 6: { sorter: 'qwikiDate' }, 7: { sorter: 'qwikiDate' }, 8: { sorter: false }, 9: { sorter: false }, 10: { sorter: false } }"}%
+   </div>
+   %ENDTAB%
+   %ENDTABPANE%
+   %AMPEL{"SignalOpenTasks" WARN="%SIGNAL_PREWARNTIME{default="7"}%" DATE="$percntMAKETEXT{\"Due date\"}$percnt" DST="$percntMAKETEXT{\"Signal\"}$percnt" DONE="Status" COND="closed" LIVEQUERY="1"}%
+   %AMPEL{"SignalClosedTasks" WARN="%SIGNAL_PREWARNTIME{default="7"}%" DATE="$percntMAKETEXT{\"Due date\"}$percnt" DST="$percntMAKETEXT{\"Signal\"}$percnt" DONE="Status" COND="closed" LIVEQUERY="1"}%
 </div>
-%ENDSECTION{"actiondialog"}%
-</div>
-
-
-
-%TABPANE{class="simple"}%
-%TAB{"%MAKETEXT{"Open tasks"}%" id="tab01"}%
-<div id="SignalOpenTasks">
-%ACTIONSEARCH{web="%WEB%" topic="MeasureActions" context="%BASETOPIC%" state="open" sort="$createdate,$who,$due" jqsortable="1" jqsortopts="widgets: ['zebra'], sortList: [[0,1],[0,1]], headers: { 0: { sorter: 'qwikiDate' }, 6: { sorter: 'qwikiDate' }, 7: { sorter: 'qwikiDate' }, 8: { sorter: false }, 9: { sorter: false }, 10: { sorter: false } }"}%
-</div>
-%ENDTAB%
-%TAB{"%MAKETEXT{"Closed tasks"}%" id="tab02"}%
-<div id="SignalClosedTasks">
-%ACTIONSEARCH{web="%WEB%" topic="MeasureActions" context="%BASETOPIC%" state="closed" sort="$createdate,$who,$due" jqsortable="1" jqsortopts="widgets: ['zebra'], sortList: [[0,1],[0,1]], headers: { 0: { sorter: 'qwikiDate' }, 6: { sorter: 'qwikiDate' }, 7: { sorter: 'qwikiDate' }, 8: { sorter: false }, 9: { sorter: false }, 10: { sorter: false } }"}%
-</div>
-%ENDTAB%
-%ENDTABPANE%
-%AMPEL{"SignalOpenTasks" WARN="%SIGNAL_PREWARNTIME{default="7"}%" DATE="$percntMAKETEXT{\"Due date\"}$percnt" DST="$percntMAKETEXT{\"Signal\"}$percnt" DONE="Status" COND="closed" LIVEQUERY="1"}%
-%AMPEL{"SignalClosedTasks" WARN="%SIGNAL_PREWARNTIME{default="7"}%" DATE="$percntMAKETEXT{\"Due date\"}$percnt" DST="$percntMAKETEXT{\"Signal\"}$percnt" DONE="Status" COND="closed" LIVEQUERY="1"}%
-</div>
-
-<div class="widgetBlockContent">
-%TMPL:PREV%
-</div>
-
 %TMPL:END%
-
 %META:PREFERENCE{name="NOWYSIWYG" title="NOWYSIWYG" type="Set" value="1"}%
 %META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="AdminGroup"}%

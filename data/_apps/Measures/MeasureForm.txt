@@ -6,6 +6,8 @@
 | Status | select+values | 1 | %MAKETEXT{"open"}%=open,%MAKETEXT{"closed"}%=closed,%MAKETEXT{"no relevance"}%=no relevance, | %MAKETEXT{"Status"}% | |
 | Responsibility | textboxlist | 50 mustMatch limit="1"| %USERAUTOCOMPLETE% | %MAKETEXT{"Responsibility"}% | M |
 | AssociatedTopic | textboxlist | 50 mustMatch limit="1"| %SCRIPTURL{view}%/%WEB%/MeasureForm?section=associatedtopic;skin=text;limit=20 | %MAKETEXT{"Associated topic"}% |  |
+| Description | editor | | | %MAKETEXT{"Description"}% |  |
+| DocumentationOfImplemention | editor | | | %MAKETEXT{"Documentation of implemention"}% |  |
 
 <verbatim>
 %STARTSECTION{"associatedtopic"}%[%SOLRSEARCH{

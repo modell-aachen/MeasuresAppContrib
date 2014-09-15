@@ -18,6 +18,9 @@ msgstr ""
 msgid "Add task"
 msgstr "Aufgabe hinzufügen"
 
+msgid "Associated topic"
+msgstr "Bezug"
+
 msgid "all"
 msgstr "alle"
 
@@ -50,6 +53,9 @@ msgstr "Details"
 
 msgid "Due date"
 msgstr "Termin"
+
+msgid "Documentation of implemention"
+msgstr "Dokumentation der Umsetzung"
 
 msgid "Information"
 msgstr "Information"
